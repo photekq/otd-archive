@@ -1,0 +1,38 @@
+<body>
+    <h4 id="post_title"></h4>
+    <h4 id="post_id"></h4>
+    <br>
+    <h3 id="user"></h3>
+    <h4 id="contents"></h4>
+</body>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<script>
+        var data = []
+        $(document).ready(function(){
+        $.ajax({
+          method: 'GET',
+          url:'http://localhost:8080/example.json',
+          success:function(response){
+            data = response
+            console.log(data)
+
+            document.getElementById('post_title').innerHTML = data.post_title
+            document.getElementById('post_id').innerHTML = data.post_id
+            document.getElementById('user').innerHTML = data.author_name
+            document.getElementById('contents').innerHTML = data.contents
+
+
+          }
+        })
+        })
+        
+
+</script>
+
